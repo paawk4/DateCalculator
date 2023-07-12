@@ -1,4 +1,4 @@
-package com.pawka.datecalculator
+package com.pawka.datecalculator.domain
 
 sealed class CalculatorAction {
     data class Number(val number: Int): CalculatorAction()

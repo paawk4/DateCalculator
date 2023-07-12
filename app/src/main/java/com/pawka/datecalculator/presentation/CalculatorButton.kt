@@ -1,4 +1,4 @@
-package com.pawka.datecalculator
+package com.pawka.datecalculator.presentation
 
 import android.graphics.drawable.Drawable
 import androidx.compose.foundation.background

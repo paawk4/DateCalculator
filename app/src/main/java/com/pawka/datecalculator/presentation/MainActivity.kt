@@ -1,4 +1,4 @@
-package com.pawka.datecalculator
+package com.pawka.datecalculator.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -63,9 +63,13 @@ class MainActivity : ComponentActivity() {
                                             textAlign = TextAlign.Start
                                         )
                                         DateTextField(state.number2)
+                                        val result = if (state.result != null) {
+                                            "${state.result.dayOfMonth}/${state.result.monthValue}/${state.result.year}"
+                                        } else ""
+
                                         Text(
                                             modifier = Modifier.fillMaxWidth(),
-                                            text = "999",
+                                            text = result,
                                             fontSize = 42.sp,
                                             textAlign = TextAlign.End
                                         )

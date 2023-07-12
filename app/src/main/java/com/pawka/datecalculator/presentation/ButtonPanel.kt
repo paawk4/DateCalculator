@@ -1,4 +1,4 @@
-package com.pawka.datecalculator
+package com.pawka.datecalculator.presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -11,6 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.pawka.datecalculator.domain.CalculatorAction
+import com.pawka.datecalculator.domain.CalculatorOperation
 
 @Composable
 fun ButtonPanel(buttonSpacing: Dp, viewModel: CalculatorViewModel) {
