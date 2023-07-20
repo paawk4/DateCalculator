@@ -35,65 +35,48 @@ class MainActivity : ComponentActivity() {
                     val viewModel = viewModel<CalculatorViewModel>()
                     val state = viewModel.state
                     val buttonSpacing = 8.dp
-                    Box(Modifier.fillMaxSize()) {
-                        Column(
+                    Column(
+                        modifier = Modifier
+                            .fillMaxWidth(),
+                        verticalArrangement = Arrangement.spacedBy(buttonSpacing)
+                    ) {
+                        Card(
                             modifier = Modifier
-                                .fillMaxWidth()
-                                .align(Alignment.BottomCenter),
-                            verticalArrangement = Arrangement.spacedBy(buttonSpacing)
+                                .aspectRatio(1.2f),
+                            shape = Shapes.extraLarge
                         ) {
-                            Card(
-                                modifier = Modifier
-                                    .aspectRatio(1f),
-                                shape = Shapes.extraLarge
+                            Column(
+                                Modifier
+                                    .fillMaxSize()
+                                    .padding(25.dp),
+                                verticalArrangement = Arrangement.SpaceBetween,
+                                horizontalAlignment = Alignment.CenterHorizontally
                             ) {
-                                Box(Modifier.fillMaxSize()) {
-                                    Column(
-                                        Modifier
-                                            .fillMaxSize()
-                                            .padding(25.dp),
-                                        verticalArrangement = Arrangement.SpaceBetween,
-                                        horizontalAlignment = Alignment.CenterHorizontally
-                                    ) {
-                                        DateTextField(state.number1)
-                                        Text(
-                                            modifier = Modifier.fillMaxWidth(),
-                                            text = state.operation?.symbol ?: "",
-                                            fontSize = 42.sp,
-                                            textAlign = TextAlign.Start
-                                        )
-                                        DateTextField(state.number2)
-                                        val result = if (state.result != null) {
-                                            "${state.result.dayOfMonth}/${state.result.monthValue}/${state.result.year}"
-                                        } else ""
+                                DateTextField(state.number1)
+                                Text(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    text = state.operation?.symbol ?: "",
+                                    fontSize = 42.sp,
+                                    textAlign = TextAlign.Start
+                                )
+                                DateTextField(state.number2)
+                                val result = if (state.result != null) {
+                                    "${state.result.dayOfMonth}/${state.result.monthValue}/${state.result.year}"
+                                } else ""
 
-                                        Text(
-                                            modifier = Modifier.fillMaxWidth(),
-                                            text = result,
-                                            fontSize = 42.sp,
-                                            textAlign = TextAlign.End
-                                        )
-                                    }
-
-                                }
+                                Text(
+                                    modifier = Modifier.fillMaxWidth(),
+                                    text = result,
+                                    fontSize = 42.sp,
+                                    textAlign = TextAlign.End
+                                )
                             }
-//                            Text(
-//                                text = state.number1 + (state.operation?.symbol
-//                                    ?: "") + state.number2,
-//                                textAlign = TextAlign.End,
-//                                modifier = Modifier
-//                                    .fillMaxWidth()
-//                                    .padding(vertical = 32.dp),
-//                                fontWeight = FontWeight.Light,
-//                                fontSize = 80.sp,
-//                                color = Color.White,
-//                                maxLines = 2
-//                            )
-                            ButtonPanel(buttonSpacing, viewModel)
                         }
+                        ButtonPanel(buttonSpacing, viewModel)
                     }
                 }
             }
+
         }
     }
 }

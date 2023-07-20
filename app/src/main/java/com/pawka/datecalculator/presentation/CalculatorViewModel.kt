@@ -43,6 +43,8 @@ class CalculatorViewModel : ViewModel() {
             val day1 = number1.substring(0, 2).toInt()
             val month1 = number1.substring(2, 4).toInt()
             val year1 = number1.substring(4, 8).toInt()
+            if (day1 > MAX_DAYS || month1 > MAX_MONTHS || year1 > MAX_YEARS)
+                return
             val date1 = LocalDate.of(year1, month1, day1)
 
             val day2 = number2.substring(0, 2).toInt()
@@ -82,6 +84,7 @@ class CalculatorViewModel : ViewModel() {
             ) {
                 return
             }
+
             state = state.copy(
                 number1 = state.number1 + number
             )
@@ -97,6 +100,9 @@ class CalculatorViewModel : ViewModel() {
 
     companion object {
         private const val NUMBER_LENGTH = 8
+        private const val MAX_DAYS = 31
+        private const val MAX_MONTHS = 12
+        private const val MAX_YEARS = 9999
     }
 
 }

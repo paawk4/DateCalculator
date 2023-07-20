@@ -1,6 +1,5 @@
 package com.pawka.datecalculator.presentation
 
-import android.graphics.drawable.Drawable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -22,7 +21,6 @@ fun CalculatorButton(
     backgroundColor: Color = Color.White,
     textColor: Color = Color.White,
     textStyle: TextStyle = TextStyle(),
-    icon: Drawable? = null,
     onClick: () -> Unit
 ) {
     Box(
