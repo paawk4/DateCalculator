@@ -4,6 +4,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -17,8 +18,9 @@ import com.pawka.datecalculator.domain.CalculatorOperation
 @Composable
 fun ButtonPanel(buttonSpacing: Dp, viewModel: CalculatorViewModel) {
     FlowRow(
-        modifier = Modifier.padding(15.dp),
-        verticalArrangement = Arrangement.spacedBy(buttonSpacing),
+        modifier = Modifier.padding(15.dp).fillMaxHeight(),
+        verticalArrangement = Arrangement.SpaceBetween,
+        horizontalArrangement = Arrangement.SpaceBetween,
         maxItemsInEachRow = 4
     ) {
         CalculatorButton(
